@@ -14,13 +14,21 @@
 # limitations under the License.
 #
 
-# Details of the image:
-tag:=quay.io/jhernand/kafka:latest
+name: Check pull request
 
-.PHONY: image
-image:
-	podman build --tag "$(tag)" .
+on:
+  pull_request:
+    branches:
+    - main
 
-.PHONY: push
-push:
-	podman push "$(tag)"
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the source
+      uses: actions/checkout@v2
+
+    - name: Build the image
+      run: make
