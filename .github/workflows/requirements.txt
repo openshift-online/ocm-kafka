@@ -14,14 +14,6 @@
 # limitations under the License.
 #
 
-# Details of the image:
-version:=latest
-tag:=quay.io/openshift-online/ocm-kafka:$(version)
+# This file lists the Python dependencies used by the GitHub actions.
 
-.PHONY: image
-image:
-	podman build --tag "$(tag)" .
-
-.PHONY: push
-push:
-	podman push "$(tag)"
+requests
