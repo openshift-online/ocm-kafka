@@ -15,7 +15,7 @@
 #
 
 # Details of the image:
-tag:=quay.io/jhernand/kafka:latest
+tag:=quay.io/openshift-online/ocm-kafka:latest
 
 .PHONY: image
 image:
